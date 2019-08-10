@@ -1,0 +1,35 @@
+<div class="container">
+    <form class="form-horizontal" #queueForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">        
+        <div class="col-sm-offset-0 col-sm-10">
+          <div class="checkbox">
+            <label><input type="text" class="form-control" #queueName="ngModel" id="name" [class.is-invalid]="queueName.invalid && queueName.touched" placeholder="Enter queue name" name="name" [(ngModel)]="queueModel.queueName" ></label>
+            &nbsp;&nbsp;&nbsp;&nbsp; 
+            <button type="submit" [disabled]="!queueForm.form.valid" class="btn btn-primary">Create New Queue</button>
+            <div *ngIf="errorMessage">Please enter queue name</div>
+          </div>
+        </div>
+      </div>
+      </form>
+      <br>
+  <h2>DBSMQ Table</h2>
+  <!-- <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>             -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>QueueName</th>
+        <th>No.Of.Messages</th>
+        <th>View Message</th>
+        <th>Action Message</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let queue of queues">
+        <td>{{queue.queueName}}</td>
+        <td>{{ queue.messages?.length || '0' }}</td>
+        <td><a (click)="getMessageByQueue(queue)">View</a></td>
+        <td>AddMsg|DeleteMsg</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

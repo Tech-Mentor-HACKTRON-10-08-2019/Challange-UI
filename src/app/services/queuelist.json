@@ -1,0 +1,8 @@
+{
+    "queues": [
+        { "queueId":"1", "queuename":"queue1", "message":["1","2","3"]},
+        { "queueId":"2", "queuename":"quque2", "message":["1","2","3"]},
+        { "queueId":"3", "queuename":"queue2", "message":["1","2","3"]}
+    ]
+}
+
